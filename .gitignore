@@ -1,0 +1,5 @@
+# gitignore - ddl
+
+components
+.DS_Store
+Thumbs.db

@@ -1,0 +1,4 @@
+[03-Jun-2016 14:19:15] [localhost/st-php-logger/example.php] : [WARNING] - this is the warning message
+[03-Jun-2016 14:19:15] [localhost/st-php-logger/example.php] : [INFO] - this is the info message
+[03-Jun-2016 14:19:15] [localhost/st-php-logger/example.php] : [ERROR] - this is the error message
+[03-Jun-2016 14:19:15] [localhost/st-php-logger/example.php] : [DEBUG] - this is the debug message
