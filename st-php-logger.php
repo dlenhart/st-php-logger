@@ -56,79 +56,79 @@ class logWriter {
         }
     }
 
-	/**
-	* Info method (write info message)
-	* @param string $message
-	* @return void
-	*/
-	public function info($message){
-		$this->writeLog($message, 'INFO');
-	}
+    /**
+    * Info method (write info message)
+    * @param string $message
+    * @return void
+    */
+    public function info($message){
+        $this->writeLog($message, 'INFO');
+    }
 
-	/**
-	* Debug method (write debug message)
-	* @param string $message
-	* @return void
-	*/
-	public function debug($message){
-		$this->writeLog($message, 'DEBUG');
-	}
+    /**
+    * Debug method (write debug message)
+    * @param string $message
+    * @return void
+    */
+    public function debug($message){
+        $this->writeLog($message, 'DEBUG');
+    }
 
-	/**
-	* Warning method (write warning message)
-	* @param string $message
-	* @return void
-	*/
-	public function warning($message){
-		$this->writeLog($message, 'WARNING');	
-	}
+    /**
+    * Warning method (write warning message)
+    * @param string $message
+    * @return void
+    */
+    public function warning($message){
+        $this->writeLog($message, 'WARNING');	
+    }
 
-	/**
-	* Error method (write error message)
-	* @param string $message
-	* @return void
-	*/
-	public function error($message){
-		$this->writeLog($message, 'ERROR');	
-	}
+    /**
+    * Error method (write error message)
+    * @param string $message
+    * @return void
+    */
+    public function error($message){
+        $this->writeLog($message, 'ERROR');	
+    }
 
-	/**
-	* Write to log file
-	* @param string $message
-	* @param string $severity
-	* @return void
-	*/
-	public function writeLog($message, $severity) {
-		// open log file
-		if (!is_resource($this->file)) {
-			$this->openLog();
-		}
-		// grab the url path ( for troubleshooting )
-		$path = $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
+    /**
+    * Write to log file
+    * @param string $message
+    * @param string $severity
+    * @return void
+    */
+    public function writeLog($message, $severity) {
+        // open log file
+        if (!is_resource($this->file)) {
+            $this->openLog();
+        }
+        // grab the url path ( for troubleshooting )
+        $path = $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
 
-		//Grab time - based on timezone in php.ini
-		$time = date($this->params['dateFormat']);
+        //Grab time - based on timezone in php.ini
+        $time = date($this->params['dateFormat']);
 
-		// Write time, url, & message to end of file
-		fwrite($this->file, "[$time] [$path] : [$severity] - $message" . PHP_EOL);
-	}
+        // Write time, url, & message to end of file
+        fwrite($this->file, "[$time] [$path] : [$severity] - $message" . PHP_EOL);
+    }
 
-	/**
-	* Open log file
-	* @return void
-	*/
-	private function openLog(){
-		$openFile = $this->log_file;
-		// 'a' option = place pointer at end of file
-		$this->file = fopen($openFile, 'a') or exit("Can't open $openFile!");
-	}
+    /**
+    * Open log file
+    * @return void
+    */
+    private function openLog(){
+        $openFile = $this->log_file;
+        // 'a' option = place pointer at end of file
+        $this->file = fopen($openFile, 'a') or exit("Can't open $openFile!");
+    }
 
-	/**
-	 * Class destructor
-	 */
-	public function __destruct(){
-		if ($this->file) {
-			fclose($this->file);
-		}
-	}
+    /**
+     * Class destructor
+     */
+    public function __destruct(){
+        if ($this->file) {
+            fclose($this->file);
+        }
+    }
 }
