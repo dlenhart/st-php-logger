@@ -18,7 +18,7 @@ class logWriter {
 	* $log_file - path and log file name
 	* @var string
 	*/
-	protected $log_file;
+    protected $log_file;
 	
 	/**
 	* $file - file
@@ -99,7 +99,7 @@ class logWriter {
 	* @return void
 	*/
     public function writeLog($message, $severity) {
-        // if file pointer doesn't exist, then open log file
+        // open log file
         if (!is_resource($this->file)) {
             $this->openLog();
         }
@@ -116,17 +116,17 @@ class logWriter {
 	/**
 	* Open log file
 	* @return void
-	*/
+    */
     private function openLog(){
         $openFile = $this->log_file;
-		// 'a' option = place pointer at end of file
+        // 'a' option = place pointer at end of file
         $this->file = fopen($openFile, 'a') or exit("Can't open $openFile!");
     }
-	
-	/**
+
+    /**
      * Class destructor
      */
-	public function __destruct(){
+    public function __destruct(){
         if ($this->file) {
             fclose($this->file);
         }
