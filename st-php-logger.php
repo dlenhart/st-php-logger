@@ -18,7 +18,7 @@ class logWriter {
 	* $log_file - path and log file name
 	* @var string
 	*/
-    protected $log_file;
+	protected $log_file;
 	
 	/**
 	* $file - file
@@ -32,7 +32,7 @@ class logWriter {
 	*/
 	protected $options = array(
 		dateFormat => 'd-M-Y H:i:s'
-		);
+	);
 	
 	/**
 	* Class constructor
@@ -40,7 +40,6 @@ class logWriter {
 	* @param array $params
 	*/
 	public function __construct($log_file = 'error.txt', $params = array()){
-		
 		$this->log_file = $log_file;
 		$this->file = $file;
 		$this->params = array_merge($this->options, $params);
@@ -55,7 +54,6 @@ class logWriter {
 			//throw exception if not writable
 			throw new Exception("ERROR: Unable to write to file!", 1);
 		}
-		
 	}
 
 	/**
@@ -108,7 +106,7 @@ class logWriter {
         // grab the url path ( for troubleshooting )
     	$path = $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
 		
-        //Grab time - based on timezone in php.ini
+		//Grab time - based on timezone in php.ini
 		$time = date($this->params['dateFormat']);
         
         // Write time, url, & message to end of file
