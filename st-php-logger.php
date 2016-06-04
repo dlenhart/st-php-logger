@@ -61,11 +61,11 @@ class logWriter {
 	* @param string $message
 	* @return void
 	*/
-	public function info($message){
+    public function info($message){
 		$this->writeLog($message, 'INFO');
 	}
 	
-	/**
+    /**
 	* Debug method (write debug message)
 	* @param string $message
 	* @return void
