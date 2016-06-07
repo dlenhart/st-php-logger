@@ -31,7 +31,7 @@ class logWriter {
     * @var array
     */
     protected $options = array(
-        dateFormat => 'd-M-Y H:i:s'
+        'dateFormat' => 'd-M-Y H:i:s'
     );
 
     /**
@@ -41,7 +41,6 @@ class logWriter {
     */
     public function __construct($log_file = 'error.txt', $params = array()){
         $this->log_file = $log_file;
-        $this->file = $file;
         $this->params = array_merge($this->options, $params);
 
         //Create log file if it doesn't exist.
