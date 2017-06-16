@@ -3,10 +3,12 @@ st-php-logger
 
 A simple PHP logger class.  Log messages to text files.
 
-#Required
+Required
+----
 -PHP 5.4 or higher
 
-#Example Usage
+Example Usage
+----
 ``` php
 <?php
 
@@ -27,7 +29,8 @@ $log->error('this is the error message');
 $log->debug('this is the debug message');
 ```
 
-#Website
+Website
+----
 www.drewlenhart.com
 
 #License
